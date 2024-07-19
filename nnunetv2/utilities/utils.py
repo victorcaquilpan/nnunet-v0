@@ -51,8 +51,7 @@ def create_lists_from_splitted_dataset_folder(folder: str, file_ending: str, ide
 
     params_list = [(folder, files, file_ending, f) for f in identifiers]
     with Pool(processes=num_processes) as pool:
-        list_of_lists = pool.starmap(create_paths_fn, params_list)
-        
+        list_of_lists = pool.starmap(create_paths_fn, params_list)        
     return list_of_lists
 
 
@@ -62,6 +61,7 @@ def get_filenames_of_train_images_and_targets(raw_dataset_folder: str, dataset_j
 
     if 'dataset' in dataset_json.keys():
         dataset = dataset_json['dataset']
+
         for k in dataset.keys():
             dataset[k]['label'] = os.path.abspath(join(raw_dataset_folder, dataset[k]['label'])) if not os.path.isabs(dataset[k]['label']) else dataset[k]['label']
             dataset[k]['images'] = [os.path.abspath(join(raw_dataset_folder, i)) if not os.path.isabs(i) else i for i in dataset[k]['images']]

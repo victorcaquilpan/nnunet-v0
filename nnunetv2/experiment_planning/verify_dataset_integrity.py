@@ -32,6 +32,7 @@ from nnunetv2.utilities.utils import get_identifiers_from_splitted_dataset_folde
 def verify_labels(label_file: str, readerclass: Type[BaseReaderWriter], expected_labels: List[int]) -> bool:
     rw = readerclass()
     seg, properties = rw.read_seg(label_file)
+
     found_labels = np.sort(pd.unique(seg.ravel()))  # np.unique(seg)
     unexpected_labels = [i for i in found_labels if i not in expected_labels]
     if len(found_labels) == 0 and found_labels[0] == 0:
@@ -148,7 +149,6 @@ def verify_dataset_integrity(folder: str, num_processes: int = 8) -> None:
                          if 'channel_names' in dataset_json.keys()
                          else dataset_json['modality'].keys())
     file_ending = dataset_json['file_ending']
-
     dataset = get_filenames_of_train_images_and_targets(folder, dataset_json)
 
     # check if the right number of training cases is present
