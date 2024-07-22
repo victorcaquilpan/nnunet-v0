@@ -1,8 +1,8 @@
 import os
 import shutil
 
-BRATS_TRAIN_DIRECTORY = '../../data/brats2023/train/'
-BRATS_TEST_DIRECTORY = '../../data/brats2023/val/'
+BRATS_TRAIN_DIRECTORY = '../../data/ped-brats2023/train/'
+BRATS_TEST_DIRECTORY = '../../data/ped-brats2023/val/'
 NNUNET_DIRECTORY = '../../data/nnunet-environment/nnUNet_raw/Dataset001_BrainTumourBrats2023/'
 
 # Reading training data

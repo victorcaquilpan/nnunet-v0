@@ -4,6 +4,21 @@ Click [here](https://github.com/MIC-DKFZ/nnUNet/tree/nnunetv1) if you were looki
 
 Coming from V1? Check out the [TLDR Migration Guide](documentation/tldr_migration_guide_from_v1.md). Reading the rest of the documentation is still strongly recommended ;-)
 
+## Use on Docker
+
+There is a Dockerfile in this repository which you can use to run nnUNet easily. 
+
+```sh
+# Use this commmand to build a Docker image from the Dockerfile
+docker build -t nnunet:v1 .
+```
+
+```sh
+# Use this command to create a Docker container
+docker run --name nnunet --gpus all --shm-size=16g -it -v /path/to/data/root:/data nnunet:v1
+```
+
+
 ## **2024-04-18 UPDATE: New residual encoder UNet presets available!**
 Residual encoder UNet presets substantially improve segmentation performance.
 They ship for a variety of GPU memory targets. It's all awesome stuff, promised! 
