@@ -18,19 +18,19 @@ def main():
     # Print PYTHONPATH for debugging purposes
     print(f"PYTHONPATH: {os.environ['PYTHONPATH']}")
     
-    # Run preprocessing 
-    preprocess_command = [
-        "python", "./nnunetv2/experiment_planning/plan_and_preprocess_entrypoints.py",
-        "-d", "1", "--verify_dataset_integrity"
-    ]
-    subprocess.run(preprocess_command, check=True)
+    # # Run preprocessing 
+    # preprocess_command = [
+    #     "python", "./nnunetv2/experiment_planning/plan_and_preprocess_entrypoints.py",
+    #     "-d", "1", "--verify_dataset_integrity"
+    # ]
+    # subprocess.run(preprocess_command, check=True)
     
-    # Run training 
-    training_command = [
-        "python", "./nnunetv2/run/run_training.py",
-        "1", "2d", "1", "--npz"
-    ]
-    subprocess.run(training_command, check=True)
+    # # Run training 
+    # training_command = [
+    #     "python", "./nnunetv2/run/run_training.py",
+    #     "1", "2d", "1", "--npz"
+    # ]
+    # subprocess.run(training_command, check=True)
     
     # Run inference
     # inference_command = [

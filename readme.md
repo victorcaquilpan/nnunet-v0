@@ -4,7 +4,7 @@ Click [here](https://github.com/MIC-DKFZ/nnUNet/tree/nnunetv1) if you were looki
 
 Coming from V1? Check out the [TLDR Migration Guide](documentation/tldr_migration_guide_from_v1.md). Reading the rest of the documentation is still strongly recommended ;-)
 
-## Use on Docker
+## Use of Docker
 
 There is a Dockerfile in this repository which you can use to run nnUNet easily. 
 
@@ -17,6 +17,10 @@ docker build -t nnunet:v1 .
 # Use this command to create a Docker container
 docker run --name nnunet --gpus all --shm-size=16g -it -v /path/to/data/root:/data nnunet:v1
 ```
+
+After that, install the remaining libraries mentioned in the file **requirements.txt** file.
+
+The code given in the file **scripts.py** provides the main scripts to run preprocessing, training and inference processes. Just uncomment the necessary lines to run a specific script. Before runnning the scripts, define properly the environment variables.
 
 
 ## **2024-04-18 UPDATE: New residual encoder UNet presets available!**
