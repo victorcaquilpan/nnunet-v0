@@ -10,12 +10,12 @@ There is a Dockerfile in this repository which you can use to run nnUNet easily.
 
 ```sh
 # Use this commmand to build a Docker image from the Dockerfile
-docker build -t nnunet:v1 .
+docker build -t nnunet:v0 .
 ```
 
 ```sh
 # Use this command to create a Docker container
-docker run --name nnunet --gpus all --shm-size=16g -it -v /path/to/data/root:/data nnunet:v1
+docker run --name nnunet --gpus all --shm-size=16g -it -v /path/to/data/root:/data nnunet:v0
 ```
 
 After that, install the remaining libraries mentioned in the file **requirements.txt** file.

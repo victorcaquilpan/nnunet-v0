@@ -21,16 +21,16 @@ def main():
     # # Run preprocessing 
     # preprocess_command = [
     #     "python", "./nnunetv2/experiment_planning/plan_and_preprocess_entrypoints.py",
-    #     "-d", "1", "--verify_dataset_integrity"
+    #     "-d", "2", "--verify_dataset_integrity"
     # ]
     # subprocess.run(preprocess_command, check=True)
     
-    # # Run training 
-    # training_command = [
-    #     "python", "./nnunetv2/run/run_training.py",
-    #     "1", "2d", "1", "--npz"
-    # ]
-    # subprocess.run(training_command, check=True)
+    # Run training 
+    training_command = [
+        "python", "./nnunetv2/run/run_training.py",
+        "2", "2d", "1", "--npz"
+    ]
+    subprocess.run(training_command, check=True)
     
     # Run inference
     # inference_command = [
@@ -41,6 +41,14 @@ def main():
     #     "-m", "/data/nnunet-environment/nnUNet_results/fold_0/checkpoint_best.pth"
     # ]
     #subprocess.run(inference_command, check=True)
+
+    # Run inference
+    # best_conf_command = [
+    #     "python", "./nnunetv2/evaluation/find_best_configuration.py",
+    #     "dataset_name_or_id", "1",
+    # ]
+    # subprocess.run(best_conf_command, check=True)
+
 
 if __name__ == "__main__":
     main()

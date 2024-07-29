@@ -331,9 +331,9 @@ def accumulate_crossval_results_entry_point():
 
 
 if __name__ == '__main__':
-    find_best_configuration(4,
+    find_best_configuration(1,
                             default_trained_models,
                             True,
                             8,
                             False,
-                            (0, 1, 2, 3, 4))
+                            [1])
