@@ -905,12 +905,12 @@ if __name__ == '__main__':
         allow_tqdm=True
     )
     predictor.initialize_from_trained_model_folder(
-        join(nnUNet_results, 'Dataset001_BrainTumourBrats2023/nnUNetTrainer__nnUNetPlans__2d'),
-        use_folds=(0,),
-        checkpoint_name='checkpoint_final.pth',
+        join(nnUNet_results, 'Dataset001_BrainTumourBrats2023/nnUNetTrainer__nnUNetPlans__3d_fullres'),
+        use_folds="all",
+        checkpoint_name='checkpoint_best.pth',
     )
     predictor.predict_from_files(join(nnUNet_raw, 'Dataset001_BrainTumourBrats2023/imagesTs'),
-                                 join(nnUNet_raw, 'Dataset001_BrainTumourBrats2023/imagesTs_predlowres'),
+                                 join(nnUNet_results, 'Dataset001_BrainTumourBrats2023/nnUNetTrainer__nnUNetPlans__3d_fullres/predictions'),
                                  save_probabilities=False, overwrite=False,
                                  num_processes_preprocessing=2, num_processes_segmentation_export=2,
                                  folder_with_segs_from_prev_stage=None, num_parts=1, part_id=0)
