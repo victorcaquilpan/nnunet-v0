@@ -1,0 +1,55 @@
+// {
+//     // Use IntelliSense to learn about possible attributes.
+//     // Hover to view descriptions of existing attributes.
+//     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+//     "version": "0.2.0",
+//     "configurations": [
+//         {
+//             "name": "Python Debugger: Current File with Arguments",
+//             "type": "debugpy",
+//             "request": "launch",
+//             "module": "nnunetv2.experiment_planning.plan_and_preprocess_entrypoints",
+//             "console": "integratedTerminal",
+//             "justMyCode": false,
+//             "env": {
+//             "CUDA_VISIBLE_DEVICES": "1",
+//             "nnUNet_raw":"/data/nnunet-environment/nnUNet_raw/",
+//             "nnUNet_preprocessed":"/data/nnunet-environment/nnUNet_preprocessed/",
+//             "nnUNet_results":"/data/nnunet-environment/nnUNet_results/"},
+//             "args": [
+//                 "-d", "1",
+//                 "--verify_dataset_integrity"
+//             ]
+//         }
+//     ]
+// }
+   
+
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Debugger: Current File with Arguments",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "nnunetv2.run.run_training",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "env": {
+            "CUDA_VISIBLE_DEVICES": "0",
+            "nnUNet_raw":"/data/nnunet-environment/nnUNet_raw/",
+            "nnUNet_preprocessed":"/data/nnunet-environment/nnUNet_preprocessed/",
+            "nnUNet_results":"/data/nnunet-environment/nnUNet_results/"},
+            "args": [
+                "1",
+                "3d_fullres",
+                "all",
+                "--npz",
+
+            ]
+        }
+    ]
+}

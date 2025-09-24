@@ -252,12 +252,14 @@ def evaluate_simple_entry_point():
 
 if __name__ == '__main__':
 
-    folder_ref = '../../data/nnunet-environment/nnUNet_raw/Dataset001_BrainTumourBrats2023/labelsTs/'
-    folder_pred = '../../data/nnunet-environment/nnUNet_results/Dataset001_BrainTumourBrats2023/nnUNetTrainer__nnUNetPlans__3d_fullres/predictions/'
-    output_file = '../../data/nnunet-environment/nnUNet_results/Dataset001_BrainTumourBrats2023/nnUNetTrainer__nnUNetPlans__3d_fullres/summary_predictions/summary_pred.json'
+    #evaluate_folder_entry_point()
+
+    folder_ref = '/data/nnunet-environment/nnUNet_raw/Dataset002_BrainTissueRaw/labelsTs/'
+    folder_pred = '/data/nnunet-environment/nnUNet_results/Dataset002_BrainTissueRaw/nnUNetTrainer__nnUNetPlans__3d_fullres/predictions/'
+    output_file = '/data/nnunet-environment/nnUNet_results/Dataset002_BrainTissueRaw/nnUNetTrainer__nnUNetPlans__3d_fullres/summary_pred.json'
     image_reader_writer = SimpleITKIO()
     file_ending = '.nii.gz'
-    regions = labels_to_list_of_regions([1, 2,3])
+    regions = labels_to_list_of_regions(list(range(1, 35)))
     ignore_label = None
     num_processes = 8
     compute_metrics_on_folder(folder_ref, folder_pred, output_file, image_reader_writer, file_ending, regions, ignore_label,
