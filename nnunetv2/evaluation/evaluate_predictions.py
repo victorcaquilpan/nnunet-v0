@@ -259,7 +259,7 @@ if __name__ == '__main__':
     output_file = '/data/nnunet-environment/nnUNet_results/Dataset002_BrainTissueRaw/nnUNetTrainer__nnUNetPlans__3d_fullres/summary_pred.json'
     image_reader_writer = SimpleITKIO()
     file_ending = '.nii.gz'
-    regions = labels_to_list_of_regions(list(range(1, 35)))
+    regions = labels_to_list_of_regions(list(range(1, 30)))
     ignore_label = None
     num_processes = 8
     compute_metrics_on_folder(folder_ref, folder_pred, output_file, image_reader_writer, file_ending, regions, ignore_label,
