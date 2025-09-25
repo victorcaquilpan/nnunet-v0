@@ -6,9 +6,9 @@
 
 # Environment variables
 export CUDA_VISIBLE_DEVICES=0
-export nnUNet_raw="/data/nnunet-environment/nnUNet_raw/"
-export nnUNet_preprocessed="/data/nnunet-environment/nnUNet_preprocessed/"
-export nnUNet_results="/data/nnunet-environment/nnUNet_results/"
+export nnUNet_raw="/data/previous-nnunet-environment/nnUNet_raw/"
+export nnUNet_preprocessed="/data/previous-nnunet-environment/nnUNet_preprocessed/"
+export nnUNet_results="/data/previous-nnunet-environment/nnUNet_results/"
 
 # (Optional) show envs for debugging
 echo "CUDA_VISIBLE_DEVICES=$CUDA_VISIBLE_DEVICES"
@@ -17,16 +17,16 @@ echo "nnUNet_preprocessed=$nnUNet_preprocessed"
 echo "nnUNet_results=$nnUNet_results"
 
 #1) Preprocessing
-# python -m nnunetv2.experiment_planning.plan_and_preprocess_entrypoints \
-# -d 2 \
-#  --verify_dataset_integrity
+python -m nnunetv2.experiment_planning.plan_and_preprocess_entrypoints \
+-d 3 \
+ --verify_dataset_integrity
 
 #2) Training
-python -m nnunetv2.run.run_training \
-    2 \
-    3d_fullres \
-    all \
-    --npz
+# python -m nnunetv2.run.run_training \
+#     2 \
+#     3d_fullres \
+#     all \
+#     --npz
 
 # 3) Inference
 # python -m nnunetv2.inference.predict_from_raw_data \
