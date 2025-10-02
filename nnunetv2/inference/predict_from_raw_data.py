@@ -905,12 +905,12 @@ if __name__ == '__main__':
         allow_tqdm=True
     )
     predictor.initialize_from_trained_model_folder(
-        join(nnUNet_results, 'Dataset004_BrainTissueRaw1000/nnUNetTrainer__nnUNetPlans__3d_fullres'),
+        join(nnUNet_results, 'Dataset005_BrainTissueRaw4Mod1000/nnUNetTrainer__nnUNetPlans__3d_fullres'),
         use_folds="all",
         checkpoint_name='checkpoint_best.pth',
     )
-    predictor.predict_from_files(join(nnUNet_raw, 'Dataset004_BrainTissueRaw1000/imagesTs'),
-                                 join(nnUNet_results, 'Dataset004_BrainTissueRaw1000/nnUNetTrainer__nnUNetPlans__3d_fullres/predictions'),
+    predictor.predict_from_files(join(nnUNet_raw, 'Dataset005_BrainTissueRaw4Mod1000/imagesTs'),
+                                 join(nnUNet_results, 'Dataset005_BrainTissueRaw4Mod1000/nnUNetTrainer__nnUNetPlans__3d_fullres/predictions'),
                                  save_probabilities=False, overwrite=True,
                                  num_processes_preprocessing=2, num_processes_segmentation_export=2,
                                  folder_with_segs_from_prev_stage=None, num_parts=1, part_id=0)
