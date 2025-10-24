@@ -571,7 +571,7 @@ class nnUNetTrainer(object):
             if not isfile(splits_file):
                 self.print_to_log_file("Creating new 5-fold cross-validation split...")
                 all_keys_sorted = list(np.sort(list(dataset.keys())))
-                splits = generate_crossval_split(all_keys_sorted, seed=1, n_splits=5)
+                splits = generate_crossval_split(all_keys_sorted, seed=11, n_splits=3)
                 save_json(splits, splits_file)
 
             else:
@@ -590,7 +590,7 @@ class nnUNetTrainer(object):
                                        "contain only %d folds. I am now creating a "
                                        "random (but seeded) 80:20 split!" % (self.fold, len(splits)))
                 # if we request a fold that is not in the split file, create a random 80:20 split
-                rnd = np.random.RandomState(seed=1 + self.fold)
+                rnd = np.random.RandomState(seed=11 + self.fold)
                 keys = np.sort(list(dataset.keys()))
                 idx_tr = rnd.choice(len(keys), int(len(keys) * 0.8), replace=False)
                 idx_val = [i for i in range(len(keys)) if i not in idx_tr]
@@ -1116,7 +1116,8 @@ class nnUNetTrainer(object):
         else:
             loss_here = np.mean(outputs_collated['loss'])
 
-        global_dc_per_class = [i for i in [2 * i / (2 * i + j + k) for i, j, k in zip(tp, fp, fn)]]
+        eps = 1e-8
+        global_dc_per_class = [i for i in [2 * i / (2 * i + j + k + eps) for i, j, k in zip(tp, fp, fn)]]
         mean_fg_dice = np.nanmean(global_dc_per_class)
         self.logger.log('mean_fg_dice', mean_fg_dice, self.current_epoch)
         self.logger.log('dice_per_class_or_region', global_dc_per_class, self.current_epoch)
