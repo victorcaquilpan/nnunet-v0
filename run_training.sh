@@ -18,7 +18,7 @@ echo "nnUNet_results=$nnUNet_results"
 
 #1) Preprocessing
 python -m nnunetv2.experiment_planning.plan_and_preprocess_entrypoints \
--d 12 \
+-d 13 \
  --verify_dataset_integrity
 
 #2) Training
