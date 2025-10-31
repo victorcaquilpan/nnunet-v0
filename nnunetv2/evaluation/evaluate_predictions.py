@@ -254,9 +254,9 @@ if __name__ == '__main__':
 
     #evaluate_folder_entry_point()
 
-    folder_ref = '/data/nnunet-environment/nnUNet_raw/Dataset005_BrainTissueRaw4Mod1000/labelsTs/'
-    folder_pred = '/data/nnunet-environment/nnUNet_results/Dataset005_BrainTissueRaw4Mod1000/nnUNetTrainer__nnUNetPlans__3d_fullres/predictions/'
-    output_file = '/data/nnunet-environment/nnUNet_results/Dataset005_BrainTissueRaw4Mod1000/nnUNetTrainer__nnUNetPlans__3d_fullres/summary_pred.json'
+    folder_ref = '/data/nnunet-environment/nnUNet_raw/Dataset013_BrainTumorBrats2024/labelsTs/'
+    folder_pred = '/data/nnunet-environment/nnUNet_results/Dataset013_BrainTumorBrats2024/nnUNetTrainer__nnUNetPlans__3d_fullres/predictions/'
+    output_file = '/data/nnunet-environment/nnUNet_results/Dataset013_BrainTumorBrats2024/nnUNetTrainer__nnUNetPlans__3d_fullres/summary_pred.json'
     image_reader_writer = SimpleITKIO()
     file_ending = '.nii.gz'
     regions = labels_to_list_of_regions(list(range(1, 30)))
